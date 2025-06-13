@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learning Resources - Newcomer Toolkit Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/language-learning.html">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/language-learning.html">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .disclaimer-box { background-color: #fffbeb; border: 1px solid #fef3c7; color: #b45309; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.875rem; }
+        .disclaimer-box strong { font-weight: 600; }
+        .resource-section { background-color: white; border-radius: 0.5rem; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .resource-section h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #1f2937; display: flex; align-items: center; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; }
+        .resource-section h3 i { margin-right: 0.75rem; width: 1.5rem; text-align: center; color: #3b82f6; }
+        .resource-section p, .resource-section li { font-size: 0.9rem; line-height: 1.6; color: #4b5563; margin-bottom: 0.75rem; }
+        .resource-section ul { list-style-type: none; padding-left: 0; margin-top: 0.75rem; }
+        .resource-section li { display: flex; align-items: flex-start; padding-bottom: 0.5rem; border-bottom: 1px dashed #e5e7eb; }
+        .resource-section li:last-child { border-bottom: none; margin-bottom: 0; }
+        .resource-section li .resource-icon { margin-right: 0.75rem; margin-top: 0.1rem; width: 1.25rem; text-align: center; flex-shrink: 0; color: #10b981; }
+        .resource-section li .link-icon { margin-left: 0.5rem; color: #6b7280; font-size: 0.75rem; }
+        .resource-section a { color: #2563eb; text-decoration: underline; font-weight: 500; }
+        .resource-section a:hover { color: #1d4ed8; }
+        .error-box { background-color: #fee2e2; border-left: 4px solid #ef4444; padding: 1rem; margin-bottom: 1rem; border-radius: 0.25rem; }
+        .error-box p { color: #b91c1c; font-size: 0.875rem; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation (copied from index.html) -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="/resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                    <!-- Language switcher hidden for now -->
+                    <!--
+                    <div class="relative">
+                        <button id="languageSwitcher" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-globe"></i>
+                            <span data-translate="language">Language</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="fr">Français</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ru">Русский</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">Español</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="de">Deutsch</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pt">Português</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ko">한국어</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hi">हिन्दी</a>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Language Learning Resources Guide</h1>
+            <p class="text-lg md:text-xl text-gray-600">Find resources to help you learn or improve your English or French in Canada.</p>
+        </header>
+
+        <div class="disclaimer-box print:hidden">
+            <strong>Disclaimer:</strong> This guide provides links to common language learning resources. Program availability, eligibility criteria (especially for free government programs), costs, and schedules vary and change frequently. <strong>Always check the official websites of the programs and organizations for the most current information and specific requirements.</strong>
+        </div>
+
+         <div id="errorContainer"></div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 print:hidden">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6">Find Resources</h2>
+            <form id="languageForm" class="space-y-5">
+                <div>
+                    <label for="province" class="block text-sm font-medium text-gray-700 mb-1">Province/Territory (for government programs)</label>
+                    <select id="province" name="province" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
+                        <option value="">-- Select Province/Territory --</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="YT">Yukon</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="findResourcesButton" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors font-medium">
+                   <i class="fas fa-search mr-2"></i> Find Language Resources
+                </button>
+            </form>
+        </div>
+
+        <div id="results" class="hidden space-y-6">
+            </div>
+
+    </div>
+    <!-- Footer (copied from index.html) -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                    <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                        <li><a href="/resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                    🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+                </p>
+                <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="/visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="/privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="/static/language-learning.js"></script>
+</body>
+</html> 

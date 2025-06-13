@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver's License Guide - Welcome Toolkit Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/drivers-license-guide.html">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/drivers-license-guide.html">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .info-section {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0; /* Start hidden */
+            max-height: 0; /* Start collapsed */
+            overflow: hidden;
+            transition: opacity 0.3s ease-in-out, max-height 0.5s ease-in-out, margin-bottom 0.3s ease-in-out, padding 0.3s ease-in-out;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .info-section.visible {
+            opacity: 1;
+            max-height: 1000px; /* Allow expansion */
+            margin-bottom: 2rem; /* mb-8 */
+            padding-top: 1.5rem; /* p-6 */
+            padding-bottom: 1.5rem; /* p-6 */
+        }
+        .placeholder-text {
+            color: #6b7280; /* gray-500 */
+            font-style: italic;
+        }
+        .additional-info-box {
+            background-color: #f9fafb; /* gray-50 */
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 1px solid #e5e7eb; /* border-gray-200 */
+        }
+        .additional-info-box h2 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            color: #1f2937; /* gray-800 */
+            margin-bottom: 0.75rem; /* mb-3 */
+        }
+        .additional-info-box ul {
+            list-style-type: disc;
+            list-style-position: inside;
+            margin-left: 0.5rem;
+            color: #4b5563; /* gray-600 */
+            space-y: 0.5rem; /* space-y-2 */
+        }
+        .additional-info-box p {
+            color: #4b5563; /* gray-600 */
+            margin-bottom: 0.5rem;
+        }
+        .disclaimer {
+            font-size: 0.875rem; /* text-sm */
+            color: #ef4444; /* red-500 */
+            font-style: italic;
+            margin-top: 0.75rem; /* mt-3 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="/resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                    <!-- Language switcher hidden for now -->
+                    <!--
+                    <div class="relative">
+                        <button id="languageSwitcher" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-globe"></i>
+                            <span data-translate="language">Language</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="fr">Français</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ru">Русский</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">Español</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="de">Deutsch</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pt">Português</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ko">한국어</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hi">हिन्दी</a>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-xl shadow-md border border-gray-200">
+
+            <h1 class="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-8">Driver's License Guide for Newcomers to Canada</h1>
+
+            <div class="mb-6">
+                <label for="provinceSelect" class="block text-gray-800 font-semibold mb-2 text-lg">Select Your Province/Territory:</label>
+                <select id="provinceSelect" class="w-full border border-gray-300 rounded-lg p-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
+                    <option value="">-- Select Province/Territory --</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">New Brunswick</option>
+                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                    <option value="Nova Scotia">Nova Scotia</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Prince Edward Island">Prince Edward Island</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Northwest Territories">Northwest Territories</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Yukon">Yukon</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
+                <label for="countrySelect" class="block text-gray-800 font-semibold mb-2 text-lg">Do You Have a Driver's License From:</label>
+                <select id="countrySelect" class="w-full border border-gray-300 rounded-lg p-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
+                    <option value="">-- Select Country --</option>
+                    <option value="USA">United States</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Austria">Austria</option> <option value="Belgium">Belgium</option> <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Netherlands">Netherlands</option> <option value="New Zealand">New Zealand</option> <option value="Portugal">Portugal</option> <option value="South Korea">South Korea</option>
+                    <option value="Spain">Spain</option> <option value="Switzerland">Switzerland</option>
+                    <option value="Taiwan">Taiwan</option> <option value="United Kingdom">United Kingdom (incl. N. Ireland, Isle of Man)</option>
+                    <option value="India">India</option>
+                    <option value="China">China</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="UAE">United Arab Emirates</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div id="licenseInfo" class="bg-blue-50 p-6 rounded-lg border border-blue-200 info-section">
+                <p class="placeholder-text">Select a province and country to see license exchange details.</p>
+            </div>
+
+            <div id="provincialResources" class="additional-info-box info-section">
+                 <p class="placeholder-text">Select a province to see additional resources.</p>
+            </div>
+
+            <div id="practiceTests" class="bg-green-50 p-6 rounded-lg border border-green-200 info-section">
+                <p class="placeholder-text">Select a province to see practice test information.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                    <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                        <li><a href="/resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                    🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+                </p>
+                <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="/visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="/privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translation data
+        const translations = {
+            'en': {
+                'home': 'Home',
+                'resources': 'Resources',
+                'about': 'About',
+                'language': 'Language',
+                'contact': 'Contact',
+                'quickLinks': 'Quick Links',
+                'disclaimer': '🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.',
+                'copyright': '© 2025 Welcome Toolkit Canada. All rights reserved.',
+                'privacyPolicy': 'Privacy Policy'
+            },
+            'fr': {
+                'home': 'Accueil',
+                'resources': 'Ressources',
+                'about': 'À propos',
+                'language': 'Langue',
+                'contact': 'Contact',
+                'quickLinks': 'Liens rapides',
+                'disclaimer': '🔹 Il s\'agit d\'une plateforme indépendante conçue pour soutenir les nouveaux arrivants au Canada. Nous ne sommes pas affiliés au gouvernement du Canada. Les informations sont fournies à titre indicatif uniquement — veuillez vous référer aux sources officielles pour les politiques les plus précises et à jour.',
+                'copyright': '© 2025 Welcome Toolkit Canada. Tous droits réservés.',
+                'privacyPolicy': 'Politique de confidentialité'
+            }
+        };
+
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSwitcher = document.getElementById('languageSwitcher');
+            const languageDropdown = document.getElementById('languageDropdown');
+
+            if (languageSwitcher && languageDropdown) {
+                // Toggle dropdown visibility
+                languageSwitcher.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('hidden');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!languageSwitcher.contains(e.target) && !languageDropdown.contains(e.target)) {
+                        languageDropdown.classList.add('hidden');
+                    }
+                });
+
+                // Handle language selection
+                languageDropdown.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const lang = this.getAttribute('data-lang');
+                        if (lang) {
+                            translatePage(lang);
+                            languageDropdown.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+        });
+
+        // Translate the page
+        function translatePage(targetLang) {
+            const translation = translations[targetLang] || translations['en'];
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translation[key]) {
+                    element.textContent = translation[key];
+                }
+            });
+
+            // Update language switcher text
+            const languageSwitcher = document.getElementById('languageSwitcher');
+            if (languageSwitcher) {
+                const span = languageSwitcher.querySelector('span');
+                if (span) {
+                    span.textContent = translation['language'] || 'Language';
+                }
+            }
+        }
+
+        // --- Data ---
+        // License rules (Illustrative - Consult official sources - Especially Reciprocal Agreements!)
+        const licenseRules = {
+            "Ontario": {
+                _default: { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Must complete the graduated licensing process. Foreign driving experience may grant credit towards waiting periods (requires official proof)." },
+                // Countries with full reciprocal exchange (usually vision test only) - List for Ontario is extensive
+                "USA": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible for full, valid licenses. May require knowledge test for licenses held less than 2 years." },
+                "Australia": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Austria": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Belgium": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "France": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Germany": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Ireland": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Japan": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Netherlands": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "New Zealand": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Portugal": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "South Korea": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Spain": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Switzerland": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Taiwan": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "United Kingdom": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                // Non-reciprocal / Other common countries (require full testing, may get experience credit)
+                "India": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Experience credit possible with official abstract (min. 2 years)." },
+                "Philippines": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Experience credit possible with official abstract (min. 2 years)." },
+                "China": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Must complete graduated licensing." },
+                "Brazil": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Must complete graduated licensing." },
+                "Mexico": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Must complete graduated licensing." },
+                "Nigeria": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Must complete graduated licensing." },
+                "Pakistan": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Must complete graduated licensing." },
+                "UAE": { exchange: false, tests: ["Vision", "Knowledge (G1)", "Road (G2)", "Road (G)"], notes: "Must complete graduated licensing." },
+                // Note: "Other" will automatically use the _default rule above
+            },
+            "British Columbia": {
+                _default: { exchange: false, tests: ["Vision", "Knowledge (Class 7L)", "Road (Class 7 N)", "Road (Class 5)"], notes: "Must complete the graduated licensing program (GLP). Foreign driving experience may provide credit." },
+                "USA": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible for equivalent Class 5/7 license if held >2 years. Knowledge test may apply otherwise." },
+                "Australia": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Austria": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Belgium": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "France": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Germany": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Ireland": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Japan": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Netherlands": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "New Zealand": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "South Korea": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Switzerland": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "Taiwan": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "United Kingdom": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible if held >2 years." },
+                "India": { exchange: false, tests: ["Vision", "Knowledge", "Road (Class 7 N)", "Road (Class 5)"], notes: "Experience credit possible with official abstract (min. 2 years)." }
+            },
+            "Alberta": {
+                _default: { exchange: false, tests: ["Vision", "Knowledge (Class 7)", "Road (Class 5 GDL)", "Road (Class 5 Full)"], notes: "Must complete the Graduated Driver Licensing (GDL) program. Foreign experience may grant credit." },
+                "USA": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible for equivalent Class 5 license." },
+                "Australia": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Austria": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Belgium": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "France": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Germany": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Ireland": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Japan": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Netherlands": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "New Zealand": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "South Korea": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Switzerland": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "Taiwan": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "United Kingdom": { exchange: true, tests: ["Vision"], notes: "Direct exchange possible." },
+                "India": { exchange: false, tests: ["Vision", "Knowledge", "Road (Class 5 GDL)", "Road (Class 5 Full)"], notes: "Experience credit possible with official abstract (min. 2 years)." }
+            },
+            "Quebec": {
+                _default: { exchange: false, tests: ["Vision", "Knowledge", "Road"], notes: "Process depends heavily on country and experience. Consult SAAQ directly. Knowledge of French is often beneficial/required." },
+                "USA": { exchange: true, tests: ["Vision"], notes: "Generally exchangeable, but verify with SAAQ based on state." },
+                "France": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "Austria": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "Belgium": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "Germany": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "Japan": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "Netherlands": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "South Korea": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "Switzerland": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "Taiwan": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." },
+                "United Kingdom": { exchange: true, tests: ["Vision"], notes: "Specific agreement exists. Verify details with SAAQ." }
+            }
+        };
+
+        // Driving schools (Illustrative)
+        const drivingSchools = {
+            "Ontario": [
+                { id: "on_yd", name: "🚗 Young Drivers of Canada", location: "Multiple Locations", offer: "MTO-Approved BDE Courses", website: "https://www.yd.com/" },
+                { id: "on_dw", name: "🚘 DriveWise", location: "Multiple Locations", offer: "Simulator Training Available", website: "https://www.drivewise.com/" },
+                { id: "on_amb", name: "🚙 AMB Driving School", location: "Ottawa Area", offer: "Various Packages", website: "#" }
+            ],
+            "British Columbia": [
+                { id: "bc_icbc", name: "🚗 ICBC Approved Schools (General Link)", location: "Province-wide", offer: "Find GLP & other courses", website: "https://www.icbc.com/driver-licensing/new-drivers/Pages/Driving-schools.aspx" },
+                { id: "bc_valley", name: "🚘 Valley Driving School", location: "Lower Mainland", offer: "Car & Truck Training", website: "https://www.valleydrivingschool.com/" }
+            ],
+            "Alberta": [
+                { id: "ab_ama", name: "🚗 AMA (Alberta Motor Association)", location: "Province-wide", offer: "Member Discounts, Various Courses", website: "https://ama.ab.ca/driving-school" },
+                { id: "ab_db", name: "🚘 Derek Brown's Academy", location: "Edmonton & Calgary", offer: "Professional Driver Training", website: "https://derekbrowns.com/" }
+            ],
+            "Quebec": [
+                { id: "qc_tecnic", name: "🚗 Tecnic Driving Schools", location: "Multiple Locations", offer: "SAAQ-Mandatory Courses", website: "https://www.tecnic.ca/en/" },
+                { id: "qc_caa", name: "🚘 CAA-Quebec Driving Schools", location: "Multiple Locations", offer: "Courses for Cars & Motorcycles", website: "https://ecoledeconduite.caaquebec.com/en/" }
+            ]
+        };
+
+        // Provincial Resources Data (Illustrative - MUST BE VERIFIED & EXPANDED)
+        const provincialInfo = {
+            "Ontario": {
+                officialLink: "https://www.ontario.ca/page/driving-and-roads",
+                officialName: "ServiceOntario / MTO",
+                docs: ["Proof of Identity (Passport, PR Card, etc.)", "Proof of Legal Status in Canada", "Original Foreign License (with translation if needed)", "Proof of Ontario Residency (Lease, Bill, etc.)"],
+                costs: ["Knowledge Test: ~$23", "G2 Road Test: ~$53", "G Road Test: ~$90", "License Card Fee: ~$90 (5 years)"],
+                experienceCredit: "Possible with official driving record/abstract (min. 2 years experience). Reduces G2/G waiting times.",
+                insuranceInfo: "Mandatory. Get quotes from various insurance providers.",
+                practiceTestLink: "https://www.ontario.ca/page/official-mto-drivers-handbook"
+            },
+            "British Columbia": {
+                officialLink: "https://www.icbc.com/driver-licensing",
+                officialName: "ICBC",
+                docs: ["Primary ID (Passport, PR Card)", "Secondary ID (BC Services Card, Credit Card)", "Original Foreign License", "Proof of BC Residency"],
+                costs: ["Knowledge Test: $15", "Class 7 Road Test (N): $35", "Class 5 Road Test: $50", "License Fee: ~$75 (5 years)"],
+                experienceCredit: "Possible with official driving record (min. 2 years). May allow direct booking of Class 5 test.",
+                insuranceInfo: "Mandatory (Basic Autoplan via ICBC, optional coverage private).",
+                practiceTestLink: "https://practicetest.icbc.com/#/"
+            },
+            "Alberta": {
+                officialLink: "https://www.alberta.ca/driving-in-alberta",
+                officialName: "Alberta Registries",
+                docs: ["Proof of Identity", "Proof of Legal Presence", "Original Foreign License", "Proof of Alberta Residency"],
+                costs: ["Knowledge Test: ~$17", "Road Tests (Fees vary by registry agent)", "License Card Fee: Varies"],
+                experienceCredit: "Possible with official driving record (min. 2 years). May allow skipping GDL road test.",
+                insuranceInfo: "Mandatory (Private insurance providers).",
+                practiceTestLink: "https://www.alberta.ca/drivers-knowledge-test"
+            },
+            "Quebec": {
+                officialLink: "https://saaq.gouv.qc.ca/en/drivers-licences",
+                officialName: "SAAQ",
+                docs: ["Proof of Identity", "Proof of Legal Right to Stay", "Original Foreign License (translation needed)", "Proof of Quebec Residency"],
+                costs: ["Knowledge Test: ~$12", "Road Test: ~$30", "License Fee: Varies annually"],
+                experienceCredit: "Complex rules, depends on country agreement. Consult SAAQ.",
+                insuranceInfo: "Mandatory (Public plan for injury, private for damage).",
+                practiceTestLink: "https://saaq.gouv.qc.ca/en/online-services/citizens/practising-passing-tests/knowledge-test/"
+            }
+        };
+
+        // --- State for Visit Counts ---
+        const schoolVisitCounts = {};
+
+        // --- DOM Elements ---
+        const provinceSelect = document.getElementById('provinceSelect');
+        const countrySelect = document.getElementById('countrySelect');
+        const licenseInfoDiv = document.getElementById('licenseInfo');
+        const provincialResourcesDiv = document.getElementById('provincialResources');
+        const practiceTestsDiv = document.getElementById('practiceTests');
+
+        // --- Functions ---
+
+        /** Updates all information sections based on selections. */
+        function updateInformation() {
+            const selectedProvince = provinceSelect.value;
+            const selectedCountry = countrySelect.value;
+            const provinceSelected = !!selectedProvince;
+
+            toggleSectionVisibility(provincialResourcesDiv, provinceSelected);
+            toggleSectionVisibility(practiceTestsDiv, provinceSelected);
+            toggleSectionVisibility(licenseInfoDiv, provinceSelected && !!selectedCountry);
+
+            if (provinceSelected) {
+                updateLicenseInfo(selectedProvince, selectedCountry);
+                updateProvincialResources(selectedProvince);
+                updatePracticeTests(selectedProvince);
+            } else {
+                resetSectionContent(licenseInfoDiv, 'Select a province and country to see license exchange details.');
+                resetSectionContent(provincialResourcesDiv, 'Select a province to see additional resources.');
+                resetSectionContent(practiceTestsDiv, 'Select a province to see practice test information.');
+            }
+        }
+
+        /** Resets the content of a section to its placeholder text. */
+        function resetSectionContent(element, placeholder) {
+            if (element) {
+                element.innerHTML = `<p class="placeholder-text">${placeholder}</p>`;
+            }
+        }
+
+        /** Toggles the visibility of an info section. */
+        function toggleSectionVisibility(element, show) {
+            if (element) {
+                element.classList.toggle('visible', show);
+            }
+        }
+
+        /** Updates the License Exchange Information section. */
+        function updateLicenseInfo(province, country) {
+            if (!province || !country) {
+                resetSectionContent(licenseInfoDiv, 'Select a province and country to see license exchange details.');
+                return;
+            }
+
+            const provinceRules = licenseRules[province];
+            let rules = (provinceRules && provinceRules[country]) ? provinceRules[country] : provinceRules?._default;
+
+            if (!provinceRules) {
+                licenseInfoDiv.innerHTML = `<p class="text-orange-700 font-medium">License exchange information for ${province} is not available yet.</p>`;
+                return;
+            }
+            if (!rules) {
+                licenseInfoDiv.innerHTML = `<p class="text-red-700 font-medium">Could not find rules for ${province}. Please consult the official provincial licensing authority.</p>`;
+                return;
+            }
+
+            const displayCountry = country === 'Other' ? 'Other Countries' : country;
+
+            let content = `<h2 class="text-xl font-semibold text-blue-800 mb-4">License Exchange: ${displayCountry} to ${province}</h2>`;
+            content += '<ul class="space-y-3 text-gray-700">';
+            content += `<li class="flex items-start"><span class="text-lg mr-2">${rules.exchange ? '✅' : '❌'}</span> <span><strong>Direct Exchange Possible:</strong> ${rules.exchange ? 'Yes' : 'No'}${rules.exchange ? ' (Conditions may apply)' : ''}</span></li>`;
+            if (rules.tests && rules.tests.length > 0) {
+                content += `<li class="flex items-start"><span class="text-lg mr-2">📋</span> <span><strong>Required Tests:</strong> ${rules.tests.join(' / ')}</span></li>`;
+            } else if (rules.exchange) {
+                content += `<li class="flex items-start"><span class="text-lg mr-2">📋</span> <span><strong>Required Tests:</strong> Generally vision test only, but confirm with licensing office.</span></li>`;
+            } else {
+                content += `<li class="flex items-start"><span class="text-lg mr-2">📋</span> <span><strong>Required Tests:</strong> Full testing sequence usually required.</span></li>`;
+            }
+            content += `<li class="flex items-start"><span class="text-lg mr-2">📝</span> <span><strong>Notes:</strong> ${rules.notes || 'No specific notes available.'} Translation may be needed if license is not in English or French. Always verify with the official provincial licensing body.</span></li>`;
+            content += '</ul>';
+
+            licenseInfoDiv.innerHTML = content;
+        }
+
+        /** Updates the Provincial Resources section. */
+        function updateProvincialResources(province) {
+            const info = provincialInfo[province];
+            provincialResourcesDiv.innerHTML = '';
+
+            if (!info) {
+                provincialResourcesDiv.innerHTML = `<p class="text-orange-700 font-medium">Detailed resources for ${province} are not available yet.</p>`;
+                return;
+            }
+
+            let content = '';
+            if (info.officialLink && info.officialName) {
+                content += `<div class="mb-6"><h2>🔗 Official Licensing Body (${info.officialName})</h2><a href="${info.officialLink}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">Visit Official Website</a></div>`;
+            }
+            if (info.docs && info.docs.length > 0) {
+                content += `<div class="mb-6"><h2>📄 General Document Checklist</h2><p>Commonly required documents (verify official list):</p><ul>${info.docs.map(doc => `<li>${doc}</li>`).join('')}</ul><p class="disclaimer">Disclaimer: This is a general guide. Requirements can change. Always check the official provincial website for the exact list.</p></div>`;
+            }
+            if (info.costs && info.costs.length > 0) {
+                content += `<div class="mb-6"><h2>💰 Estimated Costs</h2><p>Approximate fees (subject to change):</p><ul>${info.costs.map(cost => `<li>${cost}</li>`).join('')}</ul><p class="disclaimer">Disclaimer: Costs are estimates and can change. Check the official website or registry agent for current fees.</p></div>`;
+            }
+            if (info.experienceCredit) {
+                content += `<div class="mb-6"><h2>⭐ Driving Experience Credit</h2><p>${info.experienceCredit}</p><p>You usually need an official driving record/abstract from your home country, potentially translated.</p></div>`;
+            }
+            if (info.insuranceInfo) {
+                content += `<div><h2>🛡️ Mandatory Car Insurance</h2><p>${info.insuranceInfo}</p><p>Research insurance requirements and get quotes early in your process.</p></div>`;
+            }
+            provincialResourcesDiv.innerHTML = content;
+        }
+
+        /** Updates the Practice Test section. */
+        function updatePracticeTests(province) {
+            const info = provincialInfo[province];
+            practiceTestsDiv.innerHTML = '';
+
+            let content = `<h2 class="text-xl font-semibold text-green-800 mb-2">🚦 Practice Knowledge Tests</h2>`;
+            if (info && info.practiceTestLink) {
+                content += `<p class="text-gray-700 mb-2">Prepare for your knowledge exam using official resources:</p>`;
+                content += `<a href="${info.practiceTestLink}" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-800 underline font-medium">Official Practice Test / Handbook (${province})</a>`;
+            } else {
+                content += `<p class="text-gray-700">Search online for "[${province}] driver's practice test" or "[${province}] driver's handbook" to find official study materials and practice questions.</p>`;
+            }
+            practiceTestsDiv.innerHTML = content;
+        }
+
+        // --- Event Listeners ---
+        provinceSelect.addEventListener('change', updateInformation);
+        countrySelect.addEventListener('change', updateInformation);
+
+        // --- Initial Call ---
+        updateInformation();
+    </script>
+</body>
+</html> 

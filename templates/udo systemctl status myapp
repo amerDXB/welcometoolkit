@@ -1,0 +1,24 @@
+[0;1;32m●[0m nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (]8;;file://srv804708/usr/lib/systemd/system/nginx.service/usr/lib/systemd/system/nginx.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-04-28 21:03:15 UTC; 23h ago
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;
+    Process: 42711 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 28213 (nginx)
+      Tasks: 3 (limit: 9485)
+     Memory: 4.5M (peak: 7.0M)
+        CPU: 1.451s
+     CGroup: /system.slice/nginx.service
+             ├─[0;38;5;245m28213 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"[0m
+             ├─[0;38;5;245m42713 "nginx: worker process"[0m
+             └─[0;38;5;245m42714 "nginx: worker process"[0m
+
+Apr 29 20:41:21 srv804708 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Apr 29 20:44:39 srv804708 systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Apr 29 20:44:39 srv804708 nginx[42658]: 2025/04/29 20:44:39 [notice] 42658#42658: signal process started
+Apr 29 20:44:39 srv804708 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Apr 29 20:49:19 srv804708 systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Apr 29 20:49:19 srv804708 nginx[42689]: 2025/04/29 20:49:19 [notice] 42689#42689: signal process started
+Apr 29 20:49:19 srv804708 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Apr 29 20:53:41 srv804708 systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Apr 29 20:53:41 srv804708 nginx[42711]: 2025/04/29 20:53:41 [notice] 42711#42711: signal process started
+Apr 29 20:53:41 srv804708 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.

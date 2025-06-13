@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Toolkit Canada - Your Guide to Settling in Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="/https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-translate="heroTitle">Start your life in Canada with confidence</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-translate="heroDescription">
+                Essential tools and resources to help you settle, understand your finances, and make smarter decisions in your first year in Canada.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#tools" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors" data-translate="exploreTools">
+                    Explore Tools
+                </a>
+                <a href="about" class="bg-transparent border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors" data-translate="aboutUs">
+                    About Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section id="tools" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-translate="essentialTools">Essential Tools for Newcomers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Document Checklist Card -->
+                <a href="document-checklist" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-100 p-3 rounded-full">
+                                <i class="fas fa-clipboard-list text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Document Checklist Generator</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Create a personalized checklist of documents you need for your settlement.</p>
+                        <div class="flex items-center text-red-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Healthcare Eligibility Card -->
+                <a href="healthcare-eligibility" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-teal-100 p-3 rounded-full">
+                                <i class="fas fa-heartbeat text-teal-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Healthcare Eligibility Checker</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Check your healthcare coverage eligibility and requirements.</p>
+                        <div class="flex items-center text-teal-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Housing Tips Card -->
+                <a href="housing-tips" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 p-3 rounded-full">
+                                <i class="fas fa-house-damage text-indigo-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Housing Tips & Scam Warnings</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Learn about common housing scams and get tips for finding safe accommodation.</p>
+                        <div class="flex items-center text-indigo-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Cost of Living Estimator Card -->
+                <a href="cost-of-living" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full">
+                                <i class="fas fa-home text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Cost of Living Estimator</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Calculate your monthly expenses and compare costs across different Canadian cities.</p>
+                        <div class="flex items-center text-green-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Bank Comparison Card -->
+                <a href="bank-comparison" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-100 p-3 rounded-full">
+                                <i class="fas fa-university text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Bank & Credit Card Comparison</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Compare banking options and credit cards designed for newcomers.</p>
+                        <div class="flex items-center text-yellow-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Mobile Plan Comparison Card -->
+                <a href="mobile-plan-comparison" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-cyan-100 p-3 rounded-full">
+                                <i class="fas fa-mobile-alt text-cyan-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Mobile Plan Comparison</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Compare mobile plans from top Canadian providers. Filter by plan type and find newcomer-friendly options.</p>
+                        <div class="flex items-center text-cyan-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- CRA Benefits Card -->
+                <a href="cra-benefits" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 p-3 rounded-full">
+                                <i class="fas fa-hand-holding-usd text-pink-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">CRA Benefits Estimator</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Estimate your eligibility for government benefits and tax credits.</p>
+                        <div class="flex items-center text-pink-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Salary Calculator Card -->
+                <a href="salary-calculator" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-calculator text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Salary & Tax Calculator</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Estimate your take-home pay after taxes, CPP, and EI in any Canadian province.</p>
+                        <div class="flex items-center text-blue-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Language Learning Card -->
+                <a href="language-learning" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-cyan-100 p-3 rounded-full">
+                                <i class="fas fa-language text-cyan-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Language Learning Tools</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Access resources and tools to improve your English or French skills.</p>
+                        <div class="flex items-center text-cyan-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Public Transit Guide Card -->
+                <a href="public-transit" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full">
+                                <i class="fas fa-bus text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Public Transit Guide</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Navigate public transportation systems in major Canadian cities.</p>
+                        <div class="flex items-center text-purple-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Driver's License Guide Card -->
+                <a href="drivers-license-guide" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-orange-100 p-3 rounded-full">
+                                <i class="fas fa-id-card text-orange-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Driver's License Guide</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Learn how to get your driver's license in your province with step-by-step guidance.</p>
+                        <div class="flex items-center text-orange-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Credential Assessment Info Card -->
+                <a href="credential-assessment" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-certificate text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Credential Assessment Info</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Find out how to get your foreign education and credentials assessed for Canada (immigration, licensing, or study).</p>
+                        <div class="flex items-center text-blue-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Resume Builder Card -->
+                <a href="resume-builder" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Resume Builder</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Create a Canadian-style resume with our easy-to-use builder.</p>
+                        <div class="flex items-center text-blue-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Starting a Business Card -->
+                <a href="starting-business" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full">
+                                <i class="fas fa-briefcase text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold ml-4">Starting a Business Guide</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Get key information and resources for launching your business venture as a newcomer.</p>
+                        <div class="flex items-center text-green-600">
+                            <span>Try it now</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Bonus Tools Section -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-center mb-12">Bonus Tools & Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Metric ↔ Imperial Converter Card -->
+                    <a href="metric-imperial-converter" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 p-3 rounded-full">
+                                    <i class="fas fa-ruler-combined text-blue-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold ml-4">Metric ↔ Imperial Converter</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Convert temperatures, distances, weights, and more for daily life in Canada.</p>
+                            <div class="flex items-center text-gray-400">
+                                <span>Try it now</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Study Permit Tool Card -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-yellow-100 p-3 rounded-full">
+                                    <i class="fas fa-graduation-cap text-yellow-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold ml-4">Study Permit Support</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Understand tuition costs and work rules for international students.</p>
+                            <div class="flex items-center text-gray-400">
+                                <span>Coming soon</span>
+                                <i class="fas fa-lock ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Moving Checklist Card -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-red-100 p-3 rounded-full">
+                                    <i class="fas fa-boxes text-red-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold ml-4">Moving Checklist</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Plan your move to Canada with a comprehensive checklist.</p>
+                            <div class="flex items-center text-gray-400">
+                                <span>Coming soon</span>
+                                <i class="fas fa-lock ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                    <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                        <li><a href="resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                        <li><a href="about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-700">
+                        <p class="text-sm text-gray-400">
+                            <i class="fas fa-users mr-2"></i>
+                            <span id="visitorCount">Loading...</span> visitors
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                    🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+                </p>
+                <p class="text-xs mb-2"><a href="https://www.redbracket.design" target="_blank" class="text-red-500 hover:text-red-400 transition-colors">{redbracket.design}</a></p>
+                <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translation data
+        const translations = {
+            'en': {
+                'home': 'Home',
+                'resources': 'Resources',
+                'about': 'About',
+                'language': 'Language',
+                'heroTitle': 'Start your life in Canada with confidence',
+                'heroDescription': 'Essential tools and resources to help you settle, understand your finances, and make smarter decisions in your first year in Canada.',
+                'exploreTools': 'Explore Tools',
+                'aboutUs': 'About Us',
+                'essentialTools': 'Essential Tools for Newcomers',
+                'contact': 'Contact',
+                'quickLinks': 'Quick Links',
+                'disclaimer': '🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.',
+                'copyright': '© 2025 Welcome Toolkit Canada. All rights reserved.',
+                'privacyPolicy': 'Privacy Policy'
+            },
+            'fr': {
+                'home': 'Accueil',
+                'resources': 'Ressources',
+                'about': 'À propos',
+                'language': 'Langue',
+                'heroTitle': 'Commencez votre vie au Canada en toute confiance',
+                'heroDescription': 'Outils et ressources essentiels pour vous aider à vous installer, comprendre vos finances et prendre des décisions éclairées lors de votre première année au Canada.',
+                'exploreTools': 'Explorer les outils',
+                'aboutUs': 'À propos',
+                'essentialTools': 'Outils essentiels pour les nouveaux arrivants',
+                'contact': 'Contact',
+                'quickLinks': 'Liens rapides',
+                'disclaimer': '🔹 Il s\'agit d\'une plateforme indépendante conçue pour soutenir les nouveaux arrivants au Canada. Nous ne sommes pas affiliés au gouvernement du Canada. Les informations sont fournies à titre indicatif uniquement — veuillez vous référer aux sources officielles pour les politiques les plus précises et à jour.',
+                'copyright': '© 2025 Welcome Toolkit Canada. Tous droits réservés.',
+                'privacyPolicy': 'Politique de confidentialité'
+            }
+        };
+
+        // Initialize language switcher and visitor counter
+        document.addEventListener('DOMContentLoaded', function() {
+            // Visitor counter logic
+            const visitorCountElement = document.getElementById('visitorCount');
+            if (visitorCountElement) {
+                // Fetch the current count from the server
+                fetch('/visitor-counter')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        visitorCountElement.textContent = data.count.toLocaleString();
+                    })
+                    .catch(error => {
+                        console.error('Error fetching visitor count:', error);
+                        visitorCountElement.textContent = '0'; // Show 0 instead of "Error"
+                    });
+            }
+        });
+
+        // Translate the page
+        function translatePage(targetLang) {
+            const translation = translations[targetLang] || translations['en'];
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translation[key]) {
+                    element.textContent = translation[key];
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metric ↔ Imperial Converter | Newcomer Toolkit Canada</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-18">
+        <div class="flex items-center">
+          <a href="/">
+            <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="/" class="text-gray-600 hover:text-blue-600">Home</a>
+          <a href="/resources" class="text-gray-600 hover:text-blue-600">Resources</a>
+          <a href="/about" class="text-gray-600 hover:text-blue-600">About</a>
+          <div class="relative">
+            <button id="languageSwitcher" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+              <i class="fas fa-globe"></i>
+              <span>English</span>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Français</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">العربية</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Русский</a>
+            </div>
+          </div>
+        </div>
+        <button class="md:hidden text-gray-600">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="bg-white shadow">
+    <div class="max-w-2xl mx-auto py-8 px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold text-blue-700 mb-2">Metric ↔ Imperial Converter</h1>
+      <p class="text-gray-600 text-lg">Easily convert between metric and imperial units for life in Canada.</p>
+    </div>
+  </header>
+
+  <!-- Converter Form -->
+  <main class="flex-1 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md mt-8 mb-12">
+      <form id="converterForm" class="space-y-6">
+        <div>
+          <label for="conversionType" class="block text-gray-700 font-semibold mb-2">Conversion Type</label>
+          <select id="conversionType" name="conversionType" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="temperature">Temperature (°C ↔ °F)</option>
+            <option value="distance">Distance (km ↔ mi)</option>
+            <option value="height">Height (cm ↔ in)</option>
+            <option value="weight">Weight (kg ↔ lb)</option>
+          </select>
+        </div>
+        <div>
+          <label for="direction" class="block text-gray-700 font-semibold mb-2">Direction</label>
+          <select id="direction" name="direction" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="metricToImperial">Metric → Imperial</option>
+            <option value="imperialToMetric">Imperial → Metric</option>
+          </select>
+        </div>
+        <div>
+          <label for="inputValue" id="inputLabel" class="block text-gray-700 font-semibold mb-2">Value</label>
+          <input type="number" id="inputValue" name="inputValue" step="any" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition">Convert</button>
+      </form>
+      <div id="result" class="mt-6 text-center text-lg font-semibold text-gray-800"></div>
+      <div id="friendlyMessage" class="mt-2 text-center text-blue-500 text-sm"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-sm">© 2025 Welcome Toolkit Canada. All licensing information is subject to change. Please verify details with your provincial licensing authority.</p>
+    </div>
+  </footer>
+
+  <script src="/static/metric-imperial-converter.js"></script>
+  <script>
+    // Language switcher functionality
+    const languageSwitcher = document.getElementById('languageSwitcher');
+    const languageDropdown = document.getElementById('languageDropdown');
+
+    languageSwitcher.addEventListener('click', () => {
+      languageDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!languageSwitcher.contains(e.target) && !languageDropdown.contains(e.target)) {
+        languageDropdown.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html> 

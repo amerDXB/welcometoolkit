@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Transit Guide - Welcome Toolkit Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/public-transit.html">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/public-transit.html">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+         .disclaimer-box {
+             background-color: #fffbeb; /* yellow-50 */
+             border: 1px solid #fef3c7; /* yellow-200 */
+             color: #b45309; /* yellow-700 */
+             padding: 1rem; /* p-4 */
+             border-radius: 0.5rem; /* rounded-lg */
+             margin-bottom: 1.5rem; /* mb-6 */
+             font-size: 0.875rem; /* text-sm */
+         }
+         .disclaimer-box strong {
+             font-weight: 600;
+         }
+         .info-section {
+             background-color: #fff;
+             border-radius: 0.5rem; /* rounded-lg */
+             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-lg */
+             padding: 1.5rem; /* p-6 */
+             margin-bottom: 2rem; /* mb-8 */
+             opacity: 0; /* Start hidden */
+             max-height: 0; /* Start collapsed */
+             overflow: hidden;
+             transition: opacity 0.4s ease-in-out, max-height 0.6s ease-in-out, margin-bottom 0.4s ease-in-out, padding 0.4s ease-in-out;
+         }
+         .info-section.visible {
+             opacity: 1;
+             max-height: 1500px; /* Allow expansion */
+             margin-bottom: 2rem; /* mb-8 */
+             padding: 1.5rem; /* p-6 */
+         }
+         .info-section h2 {
+             font-size: 1.5rem; /* text-2xl */
+             font-weight: 700; /* font-bold */
+             color: #1f2937; /* text-gray-800 */
+             margin-bottom: 1.5rem; /* mb-6 */
+         }
+         .info-section h3 {
+             font-size: 1.125rem; /* text-lg */
+             font-weight: 600; /* font-semibold */
+             color: #374151; /* text-gray-700 */
+             margin-bottom: 0.5rem; /* mb-2 */
+         }
+         .info-section p, .info-section li {
+             color: #4b5563; /* text-gray-600 */
+             font-size: 0.875rem; /* text-sm */
+             line-height: 1.6;
+         }
+         .info-section ul {
+             list-style-type: disc;
+             list-style-position: inside;
+             margin-left: 0.5rem;
+             space-y: 0.5rem;
+         }
+         .info-section .icon-header {
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+             margin-bottom: 1.5rem; /* mb-6 */
+         }
+         .info-section .icon-header i {
+             font-size: 1.5rem; /* text-2xl */
+         }
+         .placeholder-text {
+            color: #9ca3af; /* gray-400 */
+            font-style: italic;
+            text-align: center;
+            padding: 1rem;
+         }
+         /* Style for fare result */
+         #fareResult {
+            transition: opacity 0.3s ease-in-out;
+         }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="/resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Public Transit Guide</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Find key information about public transportation in major Canadian cities to help you get around.
+            </p>
+        </div>
+
+        <div class="disclaimer-box print:hidden">
+            <strong>Disclaimer:</strong> Public transit information (fares, routes, card details, policies) changes often. This guide provides general information based on available data at a point in time. <strong>Always consult the official website of the transit authority for your city for the most current and accurate details before travelling.</strong>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 print:hidden">
+            <form id="transitForm" class="space-y-4">
+                <div>
+                    <label for="city" class="block text-lg font-medium text-gray-700 mb-2">Select Your City</label>
+                    <select id="city" name="city" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base">
+                        <option value="">-- Choose a city --</option>
+                        <option value="Calgary">Calgary</option>
+                        <option value="Edmonton">Edmonton</option> <option value="Halifax">Halifax</option>
+                        <option value="Montreal">Montreal</option>
+                        <option value="Ottawa">Ottawa</option>
+                        <option value="Toronto">Toronto</option>
+                        <option value="Vancouver">Vancouver</option>
+                        <option value="Winnipeg">Winnipeg</option> </select>
+                </div>
+            </form>
+             <p id="initialPrompt" class="placeholder-text mt-4">Select a city above to view transit details.</p>
+        </div>
+
+        <div id="transitDetailsContainer" class="space-y-8">
+
+            <div id="fareSection" class="info-section">
+                <div class="icon-header">
+                    <h2 class="text-2xl font-bold text-gray-800">Fare Information</h2>
+                    <i class="fas fa-dollar-sign text-blue-600"></i>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div>
+                        <label for="zone" class="block text-sm font-medium text-gray-700 mb-1">Zone (if applicable)</label>
+                        <select id="zone" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                            <option value="">Select zone...</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="riderType" class="block text-sm font-medium text-gray-700 mb-1">Rider Type</label>
+                        <select id="riderType" class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                            <option value="Adult">Adult</option>
+                            <option value="Youth/Student">Youth/Student</option> <option value="Senior">Senior</option>
+                            <option value="Child">Child</option> </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button id="calculateFare" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 text-sm font-medium">
+                            Estimate Single Fare
+                        </button>
+                    </div>
+                </div>
+                <div id="fareResult" class="hidden bg-blue-50 p-4 rounded-lg mb-6">
+                    <p class="text-base font-semibold text-blue-800">Estimated Single Fare (Card/Ticket): <span id="fareAmount" class="text-xl font-bold">$0.00</span></p>
+                    <p class="text-xs text-gray-600 mt-1" id="fareDetails"></p>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <p id="farePaymentNote"><i class="fas fa-info-circle mr-1 text-blue-500"></i> Fares shown usually assume payment with the transit card (e.g., Presto, Compass). Cash fares may be higher and might not offer transfers.</p>
+                    <p id="transferNote"><i class="fas fa-exchange-alt mr-1 text-blue-500"></i> <span id="transferInfoText">Transfers are often included within a specific time window (e.g., 90-120 minutes) when using a transit card.</span></p>
+                    <p id="monthlyPassNote"><i class="fas fa-calendar-alt mr-1 text-blue-500"></i> <span id="monthlyPassInfoText">For regular travel, consider purchasing a monthly pass, which usually offers significant savings. Check the official website for pass options and prices.</span></p>
+                </div>
+            </div>
+
+            <div id="cardSection" class="info-section">
+                <div class="icon-header">
+                    <h2 class="text-2xl font-bold text-gray-800">Transit Card Assistant</h2>
+                    <i class="fas fa-credit-card text-green-600"></i>
+                </div>
+                <div id="cardInfo" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700">Card Name</h3>
+                            <p id="cardName" class="text-gray-600 text-base font-medium">-</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-700">Cost to Purchase Card</h3>
+                            <p id="cardCost" class="text-gray-600 text-base font-medium">-</p>
+                        </div>
+                    </div>
+                     <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Where to Buy</h3>
+                        <p id="buyLocation" class="text-gray-600">-</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Reload Options</h3>
+                        <p id="reloadOptions" class="text-gray-600">-</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Potential Discounts (Check Eligibility)</h3>
+                        <ul id="discounts" class="list-disc list-inside text-gray-600"><li>-</li></ul>
+                    </div>
+                    <div class="pt-4">
+                        <a id="learnMoreLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 text-sm font-medium">
+                           Learn More & Verify Details <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tipsSection" class="info-section">
+                 <div class="icon-header">
+                    <h2 class="text-2xl font-bold text-gray-800">Trip Planning & Tips</h2>
+                    <i class="fas fa-map-marked-alt text-purple-600"></i>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">Plan Your Trip</h3>
+                        <p class="text-gray-600 mb-3">Use the official trip planner or popular apps for routes and real-time schedules:</p>
+                        <a id="plannerLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 text-sm font-medium mb-4">
+                            <i class="fas fa-route mr-1"></i> Open Official Trip Planner
+                        </a>
+                        <p class="text-gray-600 font-medium mb-1">Recommended Apps:</p>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li>Google Maps</li>
+                            <li>Apple Maps</li>
+                            <li>Transit App</li>
+                            <li>Official <span id="transitSystemName"></span> App (if available)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">General Tips</h3>
+                        <ul id="etiquetteList" class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Have your fare (card or cash) ready before boarding.</li>
+                            <li>Let passengers exit before you board.</li>
+                            <li>Move to the back of the bus/train to make space.</li>
+                            <li>Offer priority seats (near doors) to seniors, people with disabilities, or those pregnant.</li>
+                            <li>Keep bags off seats during busy times.</li>
+                            <li>Use headphones for music/calls.</li>
+                        </ul>
+                        <div class="mt-4">
+                             <h3 class="text-lg font-semibold text-gray-700 mb-2">Accessibility</h3>
+                             <p id="accessibilityInfo" class="text-gray-600 mb-2">Transit systems offer accessibility features (ramps, designated seating, audio announcements). Check the official website for details.</p>
+                             <a id="accessibilityLink" href="#" target="_blank" rel="noopener noreferrer" class="text-sm text-purple-600 hover:underline font-medium">View Accessibility Information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                    <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                        <li><a href="/resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                    🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+                </p>
+                <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="/visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="/privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="/static/public-transit.js"></script>
+    <script>
+        // Translation data
+        const translations = {
+            'en': {
+                'home': 'Home',
+                'resources': 'Resources',
+                'about': 'About',
+                'language': 'Language',
+                'heroTitle': 'Start your life in Canada with confidence',
+                'heroDescription': 'Essential tools and resources to help you settle, understand your finances, and make smarter decisions in your first year in Canada.',
+                'exploreTools': 'Explore Tools',
+                'aboutUs': 'About Us',
+                'essentialTools': 'Essential Tools for Newcomers',
+                'contact': 'Contact',
+                'quickLinks': 'Quick Links',
+                'disclaimer': '🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.',
+                'copyright': '© 2025 Welcome Toolkit Canada. All rights reserved.',
+                'privacyPolicy': 'Privacy Policy'
+            },
+            'fr': {
+                'home': 'Accueil',
+                'resources': 'Ressources',
+                'about': 'À propos',
+                'language': 'Langue',
+                'heroTitle': 'Commencez votre vie au Canada en toute confiance',
+                'heroDescription': 'Outils et ressources essentiels pour vous aider à vous installer, comprendre vos finances et prendre des décisions éclairées lors de votre première année au Canada.',
+                'exploreTools': 'Explorer les outils',
+                'aboutUs': 'À propos',
+                'essentialTools': 'Outils essentiels pour les nouveaux arrivants',
+                'contact': 'Contact',
+                'quickLinks': 'Liens rapides',
+                'disclaimer': '🔹 Il s\'agit d\'une plateforme indépendante conçue pour soutenir les nouveaux arrivants au Canada. Nous ne sommes pas affiliés au gouvernement du Canada. Les informations sont fournies à titre indicatif uniquement — veuillez vous référer aux sources officielles pour les politiques les plus précises et à jour.',
+                'copyright': '© 2025 Welcome Toolkit Canada. Tous droits réservés.',
+                'privacyPolicy': 'Politique de confidentialité'
+            }
+        };
+
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSwitcher = document.getElementById('languageSwitcher');
+            const languageDropdown = document.getElementById('languageDropdown');
+
+            if (languageSwitcher && languageDropdown) {
+                // Toggle dropdown visibility
+                languageSwitcher.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('hidden');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!languageSwitcher.contains(e.target) && !languageDropdown.contains(e.target)) {
+                        languageDropdown.classList.add('hidden');
+                    }
+                });
+
+                // Handle language selection
+                languageDropdown.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const lang = this.getAttribute('data-lang');
+                        if (lang) {
+                            translatePage(lang);
+                            languageDropdown.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+        });
+
+        // Translate the page
+        function translatePage(targetLang) {
+            const translation = translations[targetLang] || translations['en'];
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translation[key]) {
+                    element.textContent = translation[key];
+                }
+            });
+
+            // Update language switcher text
+            const languageSwitcher = document.getElementById('languageSwitcher');
+            if (languageSwitcher) {
+                const span = languageSwitcher.querySelector('span');
+                if (span) {
+                    span.textContent = translation['language'] || 'Language';
+                }
+            }
+        }
+    </script>
+</body>
+</html> 

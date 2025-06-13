@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Plan Comparison - Welcome Toolkit Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/mobile-plan-comparison.html">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/mobile-plan-comparison.html">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+         .disclaimer-box {
+             background-color: #fffbeb; /* yellow-50 */
+             border: 1px solid #fef3c7; /* yellow-200 */
+             color: #b45309; /* yellow-700 */
+             padding: 1rem; /* p-4 */
+             border-radius: 0.5rem; /* rounded-lg */
+             margin-bottom: 1.5rem; /* mb-6 */
+             font-size: 0.875rem; /* text-sm */
+         }
+         .disclaimer-box strong {
+             font-weight: 600;
+         }
+         .info-note {
+             background-color: #eff6ff; /* blue-50 */
+             border: 1px solid #dbeafe; /* blue-200 */
+             color: #1e40af; /* blue-800 */
+             padding: 0.75rem; /* p-3 */
+             border-radius: 0.5rem; /* rounded-lg */
+             margin-top: 1rem; /* mt-4 */
+             font-size: 0.875rem; /* text-sm */
+         }
+         /* Plan card styling */
+         .plan-card {
+            border: 1px solid #e5e7eb; /* border-gray-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1rem; /* p-4 */
+            background-color: white;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Make cards equal height in grid */
+         }
+          .plan-card.recommended {
+             border-color: #f59e0b; /* border-yellow-500 */
+             background-color: #fffbeb; /* bg-yellow-50 */
+         }
+         .plan-card .provider-logo {
+             height: 2.5rem; /* h-10 */
+             margin-bottom: 0.75rem; /* mb-3 */
+             object-fit: contain; /* Prevent distortion */
+             align-self: flex-start; /* Align logo left */
+         }
+          .plan-card h3 {
+             font-size: 1.125rem; /* text-lg */
+             font-weight: 600; /* font-semibold */
+             margin-bottom: 0.25rem; /* mb-1 */
+             color: #1f2937; /* text-gray-800 */
+         }
+         .plan-card h4 {
+             font-size: 0.875rem; /* text-sm */
+             font-weight: 500; /* font-medium */
+             margin-bottom: 0.75rem; /* mb-3 */
+             color: #4b5563; /* text-gray-600 */
+         }
+         .plan-card ul {
+             list-style-type: none;
+             padding-left: 0;
+             margin-bottom: 1rem; /* mb-4 */
+             font-size: 0.875rem; /* text-sm */
+             color: #4b5563; /* text-gray-600 */
+             flex-grow: 1; /* Allow feature list to grow */
+         }
+         .plan-card ul li {
+             display: flex;
+             align-items: flex-start;
+             margin-bottom: 0.25rem; /* mb-1 */
+         }
+          .plan-card ul li i {
+             margin-right: 0.5rem; /* mr-2 */
+             margin-top: 0.2rem;
+             color: #10b981; /* green-500 */
+             font-size: 0.75rem; /* text-xs */
+             flex-shrink: 0;
+         }
+          .plan-card .price {
+             font-size: 1.25rem; /* text-xl */
+             font-weight: 700; /* font-bold */
+             margin-bottom: 1rem; /* mb-4 */
+             color: #1f2937; /* text-gray-800 */
+         }
+          .plan-card .tags {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 0.5rem; /* gap-2 */
+             margin-bottom: 1rem; /* mb-4 */
+             margin-top: auto; /* Push tags down before button */
+             padding-top: 0.5rem; /* pt-2 */
+         }
+         .plan-card .tag {
+             font-size: 0.75rem; /* text-xs */
+             padding: 0.25rem 0.5rem; /* px-2 py-1 */
+             border-radius: 9999px; /* rounded-full */
+             font-weight: 500; /* font-medium */
+         }
+         .plan-card .tag.newcomer {
+             background-color: #dbeafe; /* blue-100 */
+             color: #1e40af; /* blue-800 */
+         }
+          .plan-card .tag.prepaid {
+             background-color: #d1fae5; /* green-100 */
+             color: #065f46; /* green-800 */
+         }
+          .plan-card .tag.postpaid {
+             background-color: #fee2e2; /* red-100 */
+             color: #991b1b; /* red-800 */
+         }
+          .plan-card .tag.recommended {
+             background-color: #fef3c7; /* yellow-100 */
+             color: #b45309; /* yellow-700 */
+         }
+         .plan-card .view-button {
+             display: block;
+             width: 100%;
+             text-align: center;
+             background-color: #2563eb; /* bg-blue-600 */
+             color: white;
+             padding: 0.5rem 1rem; /* px-4 py-2 */
+             border-radius: 0.375rem; /* rounded-md */
+             font-size: 0.875rem; /* text-sm */
+             font-weight: 500; /* font-medium */
+             transition: background-color 0.2s;
+         }
+         .plan-card .view-button:hover {
+             background-color: #1d4ed8; /* hover:bg-blue-700 */
+         }
+         /* No results style */
+          .no-results {
+             background-color: #f9fafb; /* gray-50 */
+             border: 1px dashed #e5e7eb; /* gray-200 */
+             color: #6b7280; /* gray-500 */
+             padding: 2rem; /* p-8 */
+             border-radius: 0.5rem; /* rounded-lg */
+             text-align: center;
+         }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="/resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                    <!--  <div class="relative">
+                        <button id="languageSwitcher" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-globe"></i>
+                            <span data-translate="language">Language</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="fr">Français</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ru">Русский</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">Español</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="de">Deutsch</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pt">Português</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ko">한국어</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hi">हिन्दी</a>
+                        </div>
+                    </div> -->
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto px-4 py-8">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Mobile Plan Comparison</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Compare mobile plans from various Canadian providers. Filter by your needs to find a suitable option.
+            </p>
+        </header>
+
+         <div class="disclaimer-box print:hidden">
+            <strong>Disclaimer:</strong> Mobile plan prices, data amounts, features, and promotions change frequently and can vary by province. Plans listed are primarily Bring Your Own Device (BYOD). Postpaid plans usually require a credit check. <strong>Always verify all details, including coverage in your area, directly on the provider's website before signing up.</strong> This tool provides estimates and general information only.
+        </div>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8 print:hidden">
+             <h2 class="text-xl font-semibold text-gray-800 mb-4">Filter Plans</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+                <div>
+                    <label for="providerFilter" class="block text-sm font-medium text-gray-700 mb-1">Provider</label>
+                    <select id="providerFilter" class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                        <option value="">All Providers</option>
+                        </select>
+                </div>
+                <div>
+                    <label for="planTypeFilter" class="block text-sm font-medium text-gray-700 mb-1">Plan Type</label>
+                    <select id="planTypeFilter" class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                        <option value="">All Types</option>
+                        <option value="Prepaid">Prepaid</option>
+                        <option value="Postpaid">Postpaid</option>
+                    </select>
+                </div>
+                 <div>
+                    <label for="dataAmountFilter" class="block text-sm font-medium text-gray-700 mb-1">Data Amount (Minimum)</label>
+                    <select id="dataAmountFilter" class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                        <option value="0">Any Data</option>
+                        <option value="5">5 GB+</option>
+                        <option value="10">10 GB+</option>
+                        <option value="20">20 GB+</option>
+                        <option value="50">50 GB+</option>
+                        <option value="100">100 GB+</option>
+                    </select>
+                </div>
+                 <div>
+                    <label for="priceRangeFilter" class="block text-sm font-medium text-gray-700 mb-1">Monthly Price (Maximum)</label>
+                    <select id="priceRangeFilter" class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+                        <option value="999">Any Price</option> <option value="30">$30 or less</option>
+                        <option value="40">$40 or less</option>
+                        <option value="50">$50 or less</option>
+                        <option value="60">$60 or less</option>
+                        <option value="80">$80 or less</option>
+                    </select>
+                </div>
+
+            </div>
+             <div class="mt-4 pt-4 border-t border-gray-200">
+                 <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="newcomerFriendlyFilter" class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-2 text-sm text-gray-700">Show Only Newcomer-Friendly Options</span>
+                    <i class="fas fa-info-circle text-gray-400 ml-1 text-xs" title="Plans often marketed towards newcomers, potentially with easier sign-up (e.g., no credit check for prepaid, specific offers). Always verify requirements."></i>
+                </label>
+             </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Available Mobile Plans</h2>
+             <p class="text-sm text-gray-500 mb-6">Plans shown are typically Bring Your Own Device (BYOD). Prices and data amounts are estimates and subject to change. Verify all details on the provider's website.</p>
+            <div id="plansContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <div class="col-span-full text-center py-8 text-gray-500">
+                    Loading plans...
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (from index.html) -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="/" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                    <li><a href="/resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                    <li><a href="/about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                <ul class="space-y-2">
+                    <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+            </p>
+            <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="/visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="/privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+        </div>
+    </div>
+</footer>
+
+    <script src="/static/mobile-plan-comparison.js"></script>
+</body>
+</html> 

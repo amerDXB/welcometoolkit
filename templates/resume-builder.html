@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian-Style Resume Builder - Newcomer Toolkit Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/resume-builder">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/resume-builder.html">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.11/dist/purify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Tooltip styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the icon */
+            left: 50%;
+            margin-left: -110px; /* Center the tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.75rem; /* text-xs */
+            line-height: 1.4;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Ensure preview area uses a standard font */
+        #resumePreviewContent {
+            font-family: Calibri, Arial, sans-serif; /* Common resume fonts */
+            color: #333333;
+            font-size: 10pt; /* Standard resume font size */
+            line-height: 1.4; /* Standard line height */
+        }
+        /* Print Styles (Simplified) */
+        @media print {
+            body * { visibility: hidden; }
+            #resumePreview, #resumePreview * { visibility: visible; }
+            #resumePreview {
+                position: absolute; left: 0; top: 0; width: 100%; height: auto; margin: 0; padding: 0; border: none; box-shadow: none;
+            }
+            #resumePreviewContent { /* Ensure content within preview is styled for print */
+                 padding: 1in; /* Standard margins */
+                 box-sizing: border-box;
+                 width: 8.5in;
+                 min-height: 11in; /* Ensure it tries to fit letter size */
+                 font-family: Calibri, Arial, sans-serif !important;
+                 font-size: 10pt !important;
+                 color: #000 !important; /* Black text for print */
+            }
+             /* Hide buttons in print view */
+            .print-hide { display: none !important; }
+            /* Ensure links are black in print */
+             #resumePreviewContent a { color: #000 !important; text-decoration: none !important; }
+        }
+         /* Error message style */
+         .error-box {
+             background-color: #fee2e2; /* red-100 */
+             border-left: 4px solid #ef4444; /* red-500 */
+             padding: 1rem; /* p-4 */
+             margin-bottom: 1rem; /* mb-4 */
+             border-radius: 0.25rem;
+         }
+         .error-box p {
+             color: #b91c1c; /* red-700 */
+             font-size: 0.875rem; /* text-sm */
+         }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation (from index.html) -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="/resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                     <!--  <div class="relative">
+                        <button id="languageSwitcher" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-globe"></i>
+                            <span data-translate="language">Language</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="fr">Français</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ru">Русский</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">Español</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="de">Deutsch</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pt">Português</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ko">한국어</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hi">हिन्दी</a>
+                        </div>
+                    </div> -->
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Canadian-Style Resume Builder</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Create a professional resume tailored for the Canadian job market.</p>
+        </div>
+
+         <div class="disclaimer-box print:hidden max-w-4xl mx-auto">
+            <strong>Disclaimer:</strong> This tool helps structure your resume based on common Canadian formats. Content quality, tailoring to specific jobs, and proofreading are crucial for success. This tool does not guarantee job interviews. Resume conventions can vary by industry.
+        </div>
+
+         <div id="errorContainer" class="max-w-4xl mx-auto"></div>
+
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-6 print:hidden">
+                <h2 class="text-xl font-semibold text-gray-800 mb-6 border-b pb-2">Enter Your Details</h2>
+                <form id="resumeForm" class="space-y-5">
+                    <fieldset class="border border-gray-200 p-4 rounded-md">
+                        <legend class="text-sm font-medium text-gray-700 px-2">Contact Information</legend>
+                        <div class="space-y-4 mt-2">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1 flex items-center" for="fullName">Full Name *
+                                     <span class="tooltip ml-1">
+                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                        <span class="tooltiptext">Your legal first and last name.</span>
+                                    </span>
+                                </label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="e.g., Jane Doe"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1 flex items-center" for="city">City *
+                                         <span class="tooltip ml-1">
+                                            <i class="fas fa-info-circle text-gray-400"></i>
+                                            <span class="tooltiptext">City where you reside or plan to work.</span>
+                                        </span>
+                                    </label>
+                                    <input type="text" id="city" name="city" required placeholder="e.g., Calgary"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1" for="province">Province/Territory *</label>
+                                    <select id="province" name="province" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                        <option value="">Select...</option>
+                                        <option value="AB">AB</option> <option value="BC">BC</option> <option value="MB">MB</option>
+                                        <option value="NB">NB</option> <option value="NL">NL</option> <option value="NS">NS</option>
+                                        <option value="ON">ON</option> <option value="PE">PE</option> <option value="QC">QC</option>
+                                        <option value="SK">SK</option> <option value="NT">NT</option> <option value="NU">NU</option> <option value="YT">YT</option>
+                                    </select>
+                                </div>
+                            </div>
+                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1 flex items-center" for="phone">Phone Number
+                                         <span class="tooltip ml-1">
+                                            <i class="fas fa-info-circle text-gray-400"></i>
+                                            <span class="tooltiptext">Use a Canadian number if possible. Format: (XXX) XXX-XXXX</span>
+                                        </span>
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1 flex items-center" for="email">Email Address
+                                        <span class="tooltip ml-1">
+                                            <i class="fas fa-info-circle text-gray-400"></i>
+                                            <span class="tooltiptext">Use a professional-looking email address.</span>
+                                        </span>
+                                    </label>
+                                    <input type="email" id="email" name="email" placeholder="your.name@email.com"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1 flex items-center" for="linkedin">LinkedIn Profile URL (Optional)
+                                     <span class="tooltip ml-1">
+                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                        <span class="tooltiptext">Ensure your profile is up-to-date and professional.</span>
+                                    </span>
+                                </label>
+                                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                            </div>
+                             <p class="text-xs text-gray-500 mt-2"><i class="fas fa-exclamation-triangle mr-1 text-yellow-600"></i> Do NOT include age, marital status, photos, or SIN on Canadian resumes.</p>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="border border-gray-200 p-4 rounded-md">
+                        <legend class="text-sm font-medium text-gray-700 px-2">Professional Summary</legend>
+                         <div class="mt-2">
+                            <label class="block text-xs font-medium text-gray-600 mb-1 flex items-center" for="summary">Summary / Profile
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-gray-400"></i>
+                                    <span class="tooltiptext">Write 2-4 sentences highlighting your key skills, experience, and career goal relevant to the job you're applying for. Tailor this for each application!</span>
+                                </span>
+                            </label>
+                            <textarea id="summary" name="summary" rows="4" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm"
+                                placeholder="e.g., Highly motivated Software Developer with 5+ years of experience in... Seeking a challenging role at [Company Name] where I can leverage my skills in X, Y, and Z to contribute to..."></textarea>
+                        </div>
+                     </fieldset>
+
+
+                    <fieldset class="border border-gray-200 p-4 rounded-md">
+                        <legend class="text-sm font-medium text-gray-700 px-2">Work Experience</legend>
+                        <div id="experienceEntries" class="space-y-4 mt-2">
+                            <div class="experience-entry p-3 bg-gray-50 rounded-lg border border-gray-200 relative">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+                                    <input type="text" name="expJobTitle[]" placeholder="Job Title *" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                    <input type="text" name="expCompany[]" placeholder="Company Name *" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+                                    <input type="text" name="expCity[]" placeholder="City, Country *" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                    <input type="text" name="expYears[]" placeholder="Years (e.g., 2020-2023 or 2021-Present) *" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                </div>
+                                <textarea name="expDesc[]" placeholder="Describe responsibilities & achievements using action verbs (e.g., Managed..., Developed..., Increased..., Led...). Use bullet points (start each with * ). *" rows="4" required
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm"></textarea>
+                                </div>
+                        </div>
+                        <button type="button" id="addExperienceBtn"
+                            class="mt-3 px-3 py-1 text-sm text-emerald-600 border border-emerald-600 rounded-md hover:bg-emerald-50 transition-colors">
+                            <i class="fas fa-plus mr-1"></i> Add Another Job
+                        </button>
+                    </fieldset>
+
+                    <fieldset class="border border-gray-200 p-4 rounded-md">
+                        <legend class="text-sm font-medium text-gray-700 px-2">Education</legend>
+                         <div id="educationEntries" class="space-y-4 mt-2">
+                             <div class="education-entry p-3 bg-gray-50 rounded-lg border border-gray-200 relative">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+                                    <input type="text" name="eduDegree[]" placeholder="Degree / Diploma / Certificate *" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                    <input type="text" name="eduSchool[]" placeholder="Institution Name *" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <input type="text" name="eduCity[]" placeholder="City, Country *" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                    <input type="text" name="eduYear[]" placeholder="Year Completed (or Expected) *" required pattern="\d{4}|Present" title="Enter a 4-digit year or 'Present'"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm">
+                                </div>
+                                 </div>
+                        </div>
+                         <button type="button" id="addEducationBtn"
+                            class="mt-3 px-3 py-1 text-sm text-emerald-600 border border-emerald-600 rounded-md hover:bg-emerald-50 transition-colors">
+                            <i class="fas fa-plus mr-1"></i> Add Another Education
+                        </button>
+                    </fieldset>
+
+                    <fieldset class="border border-gray-200 p-4 rounded-md">
+                        <legend class="text-sm font-medium text-gray-700 px-2">Skills</legend>
+                         <div class="mt-2">
+                            <label class="block text-xs font-medium text-gray-600 mb-1 flex items-center" for="skills">Skills (comma-separated) *
+                                <span class="tooltip ml-1">
+                                    <i class="fas fa-info-circle text-gray-400"></i>
+                                    <span class="tooltiptext">List relevant technical skills (e.g., software, tools) and soft skills (e.g., communication, teamwork). Match keywords from job descriptions.</span>
+                                </span>
+                            </label>
+                            <textarea id="skills" name="skills" rows="3" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm"
+                                placeholder="e.g., Customer Service, Microsoft Office Suite, Project Management, Data Analysis, Fluent in Spanish"></textarea>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset class="border border-gray-200 p-4 rounded-md">
+                        <legend class="text-sm font-medium text-gray-700 px-2">Optional Sections</legend>
+                        <div class="space-y-4 mt-2">
+                             <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Certifications / Licenses</label>
+                                <div id="certificateEntries" class="space-y-3">
+                                    </div>
+                                <button type="button" id="addCertificateBtn"
+                                    class="mt-2 px-3 py-1 text-xs text-emerald-600 border border-emerald-600 rounded-md hover:bg-emerald-50 transition-colors">
+                                    <i class="fas fa-plus mr-1"></i> Add Certification/License
+                                </button>
+                            </div>
+
+                             <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Languages</label>
+                                <div id="languageEntries" class="space-y-3">
+                                     </div>
+                                <button type="button" id="addLanguageBtn"
+                                    class="mt-2 px-3 py-1 text-xs text-emerald-600 border border-emerald-600 rounded-md hover:bg-emerald-50 transition-colors">
+                                    <i class="fas fa-plus mr-1"></i> Add Language
+                                </button>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="pt-4 space-y-3">
+                         <button type="button" id="fillDummyDataBtn" class="w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors font-medium text-sm">
+                            <i class="fas fa-magic mr-2"></i>Fill with Sample Data (for Testing)
+                        </button>
+                        <button type="submit" id="generateButton"
+                            class="w-full bg-emerald-600 text-white py-3 px-4 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-colors font-semibold">
+                            Generate My Resume Preview
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="previewSection" class="hidden lg:block sticky top-8 print:block"> <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Resume Preview</h2>
+                 <div class="flex justify-center gap-4 mb-4 print:hidden">
+                        <button id="regenerateBtn" disabled class="px-3 py-1 bg-gray-200 text-gray-500 rounded-md text-sm cursor-not-allowed">
+                            <i class="fas fa-redo mr-1"></i>Regenerate
+                        </button>
+                        <button id="downloadPdfBtn" disabled class="px-3 py-1 bg-gray-200 text-gray-500 rounded-md text-sm cursor-not-allowed">
+                            <i class="fas fa-file-pdf mr-1"></i>Download PDF
+                        </button>
+                        <a href="/cover-letter" target="_blank" id="coverLetterBtn" class="px-3 py-1 bg-blue-100 text-blue-400 rounded-md text-sm cursor-not-allowed flex items-center" disabled>
+                            <i class="fas fa-file-alt mr-1"></i>Generate a Cover Letter
+                        </a>
+                        </div>
+                <div id="resumePreview" class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 overflow-auto" style="max-height: 80vh;">
+                    <div id="resumePreviewContent" class="prose prose-sm max-w-none">
+                        <p class="text-center text-gray-400 italic">Enter your details and click "Generate" to see your resume preview here.</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-4 print:hidden">
+                     <p class="text-xs text-gray-500">Tip: Proofread carefully! Download as PDF for applications.</p>
+                 </div>
+              <!--  <div id="resumeReadySection" class="hidden mt-8 p-6 max-w-2xl mx-auto bg-white border border-gray-200 rounded-xl shadow-sm text-center">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">🎉 Your resume is ready!</h2>
+                    <p class="text-gray-600 mb-4">
+                        This tool is 100% free to use. If it helped you, you can support it in two ways:
+                    </p>
+                    <a href="https://www.paypal.me/amerflihan" target="_blank" class="inline-block px-5 py-2 mb-4 bg-yellow-400 text-white font-medium rounded-full hover:bg-yellow-500 transition">
+                        ☕ Buy me a coffee on PayPal
+                    </a>
+                    <p class="text-gray-600 mb-2">or simply share it with others who might need it 💛</p>
+                    <div class="flex justify-center flex-wrap gap-4">
+                        <a href="/https://api.whatsapp.com/send?text=Check%20out%20this%20free%20Canadian%20resume%20builder!%20https://welcometoolkitcanada.com/resume-builder" target="_blank" class="text-green-600 hover:underline">
+                            📤 Share on WhatsApp
+                        </a>
+                        <a href="/https://twitter.com/intent/tweet?text=This%20free%20resume%20tool%20helped%20me%20create%20a%20professional%20Canadian%20resume%20in%20minutes!%20Try%20it%20here:%20https://welcometoolkitcanada.com/resume-builder" target="_blank" class="text-blue-500 hover:underline">
+                            🐦 Share on Twitter
+                        </a>
+                        <button onclick="copyLink()" class="text-gray-700 hover:underline">
+                            🔗 Copy Link
+                        </button>
+                    </div>
+                    <p class="mt-6 text-sm text-gray-400">Thank you for supporting this free project 🙏</p>
+                </div>-->
+            </div>
+        </div>
+
+        <div class="mt-12 bg-blue-50 rounded-lg p-6 max-w-4xl mx-auto print:hidden">
+            <h2 class="text-xl font-semibold text-blue-800 mb-4"><i class="fas fa-lightbulb mr-2"></i>Tips for Canadian Resumes</h2>
+            <ul class="space-y-2 text-sm text-gray-700 list-disc list-inside">
+                <li>**Length:** Aim for 1-2 pages maximum, especially early in your career.</li>
+                <li>**Format:** Use a clean, professional, reverse-chronological format (most recent experience first).</li>
+                <li>**Content:** Focus on achievements using action verbs (e.g., "Managed," "Developed," "Increased," "Solved"). Quantify results whenever possible (e.g., "Increased sales by 15%").</li>
+                <li>**Keywords:** Tailor your resume using keywords from the specific job description you're applying for.</li>
+                <li>**Personal Info:** Do NOT include photos, age, marital status, religion, or SIN.</li>
+                <li>**Contact Info:** Include your name, city/province, phone number (Canadian preferred), professional email, and optionally your LinkedIn profile URL.</li>
+                <li>**Summary:** Start with a brief (2-4 sentence) professional summary tailored to the target role.</li>
+                <li>**Proofread:** Absolutely essential! Get someone else to check for typos and grammatical errors.</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer (from index.html) -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                    <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                        <li><a href="/resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                    🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+                </p>
+                <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="/visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="/privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/resume-builder.js"></script>
+    <script>
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html> 

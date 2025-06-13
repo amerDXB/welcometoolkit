@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Eligibility Checker - Welcome Toolkit Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/healthcare-eligibility.html">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/healthcare-eligibility.html">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+         .disclaimer-box {
+             background-color: #fffbeb; /* yellow-50 */
+             border: 1px solid #fef3c7; /* yellow-200 */
+             color: #b45309; /* yellow-700 */
+             padding: 1rem; /* p-4 */
+             border-radius: 0.5rem; /* rounded-lg */
+             margin-bottom: 1.5rem; /* mb-6 */
+             font-size: 0.875rem; /* text-sm */
+         }
+         .disclaimer-box strong {
+             font-weight: 600;
+         }
+          .info-note {
+             background-color: #eff6ff; /* blue-50 */
+             border: 1px solid #dbeafe; /* blue-200 */
+             color: #1e40af; /* blue-800 */
+             padding: 1rem; /* p-4 */
+             border-radius: 0.5rem; /* rounded-lg */
+             margin-top: 1.5rem; /* mt-6 */
+             font-size: 0.875rem; /* text-sm */
+         }
+         .info-note strong {
+             font-weight: 600;
+         }
+         .result-box {
+             border-radius: 0.5rem; /* rounded-lg */
+             padding: 1.5rem; /* p-6 */
+             margin-bottom: 1rem; /* mb-4 */
+         }
+         .result-box h3 {
+             font-size: 1.25rem; /* text-xl */
+             font-weight: 600; /* font-semibold */
+             margin-bottom: 0.5rem; /* mb-2 */
+         }
+          .result-box p {
+             font-size: 0.9rem; /* text-sm slightly larger */
+             line-height: 1.6;
+         }
+         .result-box ul {
+             list-style-type: none;
+             padding-left: 0;
+             margin-top: 0.75rem; /* mt-3 */
+             space-y: 0.5rem; /* space-y-2 */
+         }
+          .result-box li {
+             display: flex;
+             align-items: flex-start;
+             font-size: 0.875rem; /* text-sm */
+         }
+         .result-box li i {
+             margin-right: 0.75rem; /* mr-3 */
+             margin-top: 0.2rem; /* Align icon slightly */
+             width: 1.1rem; /* Fixed width */
+             text-align: center;
+         }
+         /* Error message style */
+         .error-box {
+             background-color: #fee2e2; /* red-100 */
+             border-left: 4px solid #ef4444; /* red-500 */
+             padding: 1rem; /* p-4 */
+             margin-bottom: 1rem; /* mb-4 */
+             border-radius: 0.25rem;
+         }
+         .error-box p {
+             color: #b91c1c; /* red-700 */
+             font-size: 0.875rem; /* text-sm */
+         }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+     <!-- Navigation -->
+     <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="/resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                  <!--  <div class="relative">
+                        <button id="languageSwitcher" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-globe"></i>
+                            <span data-translate="language">Language</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="fr">Français</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ar">العربية</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ru">Русский</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="es">Español</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="de">Deutsch</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="it">Italiano</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="pt">Português</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="zh">中文</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ja">日本語</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ko">한국어</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="hi">हिन्दी</a>
+                        </div>
+                    </div> -->
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto px-4 py-8 max-w-3xl">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Healthcare Eligibility Checker</h1>
+            <p class="text-lg md:text-xl text-gray-600">Estimate your eligibility for provincial/territorial health insurance in Canada.</p>
+        </header>
+
+        <div class="disclaimer-box print:hidden">
+            <strong>Disclaimer:</strong> This tool provides a simplified overview based on general eligibility rules, which are complex and subject to change. Waiting periods, specific requirements for work/study permits (duration, type), and coverage details vary. This is not legal or immigration advice. <strong>You MUST consult the official provincial/territorial health authority website for definitive eligibility criteria and application procedures.</strong>
+        </div>
+
+         <div id="errorContainer"></div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 print:hidden">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6">Your Information</h2>
+            <form id="eligibilityForm" class="space-y-5">
+                <div>
+                    <label for="province" class="block text-sm font-medium text-gray-700 mb-1">Province or Territory of Residence</label>
+                    <select id="province" name="province" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
+                        <option value="">-- Select Province/Territory --</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="YT">Yukon</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Primary Immigration Status</label>
+                    <select id="status" name="status" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
+                        <option value="">-- Select Status --</option>
+                        <option value="permanent_resident">Permanent Resident (PR)</option>
+                        <option value="work_permit">Work Permit Holder</option>
+                        <option value="study_permit">Study Permit Holder</option>
+                        <option value="refugee">Refugee Claimant / Protected Person</option>
+                        <option value="visitor_record">Visitor Record Holder (Extended Stay)</option>
+                        <option value="visitor">Visitor / Tourist</option>
+                    </select>
+                     <p class="text-xs text-gray-500 mt-1">Note: Eligibility for permit holders often depends on permit duration and type (e.g., minimum 6-12 months validity, full-time work/study). Check official criteria.</p>
+                </div>
+
+                <div class="flex items-center pt-2">
+                    <input type="checkbox" id="hasDependents" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                    <label for="hasDependents" class="ml-2 block text-sm text-gray-700">Are you applying with dependents (spouse/children)?</label>
+                </div>
+
+                <button type="submit" id="checkButton" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors font-medium">
+                   <i class="fas fa-check-circle mr-2"></i> Check Eligibility Estimate
+                </button>
+            </form>
+        </div>
+
+        <div id="results" class="hidden space-y-6">
+            <div id="eligibilityStatus" class="result-box">
+                </div>
+
+            <div id="coverageDetails" class="result-box bg-white shadow">
+                 <h3 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">General Coverage Overview</h3>
+                 <div id="coverageContent" class="space-y-4">
+                    </div>
+            </div>
+
+             <div id="dependentsNote" class="info-note hidden">
+                 <strong><i class="fas fa-users mr-2"></i>Note for Dependents:</strong> If your dependents (spouse, children) meet the residency and status requirements, they generally need to apply separately but often share similar eligibility and waiting periods. Ensure you submit applications for all eligible family members.
+             </div>
+
+             <div id="privateInsuranceNote" class="info-note hidden">
+                 <strong><i class="fas fa-shield-alt mr-2"></i>Important: Private Insurance Needed!</strong> During any waiting period before provincial coverage starts, or if you are ineligible, it is crucial to have private health insurance to cover potential medical emergencies, which can be very expensive in Canada.
+             </div>
+
+
+            <div id="applicationLinkContainer" class="text-center mt-6">
+                 </div>
+        </div>
+
+        <div class="mt-8 bg-white rounded-lg shadow-lg p-6 print:hidden">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">💡 Learn More</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="/https://www.canada.ca/en/immigration-refugees-citizenship/services/new-immigrants/new-life-canada/health-care" target="_blank" rel="noopener noreferrer" class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 block">
+                    <h3 class="font-semibold text-blue-600 mb-1"><i class="fas fa-notes-medical mr-2"></i>Understanding Canadian Healthcare</h3>
+                    <p class="text-gray-600 text-sm">Official overview of the Canadian healthcare system for newcomers.</p>
+                </a>
+                <a href="/https://www.canada.ca/en/financial-consumer-agency/services/insurance/health-insurance" target="_blank" rel="noopener noreferrer" class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 block">
+                    <h3 class="font-semibold text-blue-600 mb-1"><i class="fas fa-shield-alt mr-2"></i>Private Health Insurance</h3>
+                    <p class="text-gray-600 text-sm">Information on supplementary and private health insurance options.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- Footer (from index.html) -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="/" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                    <li><a href="/resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                    <li><a href="/about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                <ul class="space-y-2">
+                    <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+            </p>
+            <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="/visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="/privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+        </div>
+    </div>
+</footer>
+    <script src="/static/healthcare-eligibility.js"></script>
+</body>
+</html> 

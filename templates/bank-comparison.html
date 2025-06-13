@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank & Credit Card Comparison - Welcome Toolkit Canada</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welcometoolkitcanada.com/bank-comparison.html">
+    <meta property="og:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta property="og:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta property="og:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://welcometoolkitcanada.com/bank-comparison.html">
+    <meta name="twitter:title" content="Welcome Toolkit Canada | Essential Tools for Newcomers">
+    <meta name="twitter:description" content="Start your life in Canada with confidence. Essential tools & resources for settlement, finances, healthcare, housing, and more.">
+    <meta name="twitter:image" content="https://welcometoolkitcanada.com/static/images/social-card.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+         .disclaimer-box {
+             background-color: #fffbeb; /* yellow-50 */
+             border: 1px solid #fef3c7; /* yellow-200 */
+             color: #b45309; /* yellow-700 */
+             padding: 1rem; /* p-4 */
+             border-radius: 0.5rem; /* rounded-lg */
+             margin-bottom: 1.5rem; /* mb-6 */
+             font-size: 0.875rem; /* text-sm */
+         }
+         .disclaimer-box strong {
+             font-weight: 600;
+         }
+         .context-box {
+            background-color: #eff6ff; /* blue-50 */
+            border: 1px solid #dbeafe; /* blue-200 */
+            color: #1e40af; /* blue-800 */
+            padding: 1rem; /* p-4 */
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-bottom: 1.5rem; /* mb-6 */
+            font-size: 0.875rem; /* text-sm */
+         }
+         .context-box strong {
+             font-weight: 600;
+         }
+         .no-results {
+             background-color: #f9fafb; /* gray-50 */
+             border: 1px dashed #e5e7eb; /* gray-200 */
+             color: #6b7280; /* gray-500 */
+             padding: 2rem; /* p-8 */
+             border-radius: 0.5rem; /* rounded-lg */
+             text-align: center;
+         }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation (from index.html) -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/static/images/logo/newcomer-toolkit-logo.svg" alt="Newcomer Toolkit Logo" class="h-20 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-600 hover:text-blue-600" data-translate="home">Home</a>
+                    <a href="/resources" class="text-gray-600 hover:text-blue-600" data-translate="resources">Resources</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600" data-translate="about">About</a>
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Bank & Credit Card Comparison</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Compare banking options and credit cards designed for newcomers to Canada. Find products to start building your financial foundation.
+            </p>
+        </header>
+
+        <div class="disclaimer-box">
+            <strong>Disclaimer:</strong> Information presented here is for general guidance. Bank offers, fees, interest rates, and eligibility criteria change frequently. <strong>Always verify all details directly with the financial institution before applying for any product.</strong> This toolkit is not a financial advisor.
+        </div>
+
+        <div class="context-box">
+             <i class="fas fa-chart-line mr-2"></i><strong>Building Credit History:</strong> Getting a Canadian credit card, even one with a small limit, and using it responsibly (making payments on time) is crucial for newcomers. It helps build your Canadian credit history, which is essential for future loans (car, mortgage), renting apartments, and sometimes even getting a cell phone plan.
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Filter Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="productType" class="block text-sm font-medium text-gray-700 mb-1">Product Type</label>
+                    <select id="productType" class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="all">All Products</option>
+                        <option value="account">Bank Accounts</option>
+                        <option value="credit">Credit Cards</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="feeType" class="block text-sm font-medium text-gray-700 mb-1">Fee Level</label>
+                    <select id="feeType" class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="all">Any Fee</option>
+                        <option value="free">No Fee (Monthly/Annual)</option>
+                        <option value="paid">Has Fee (Monthly/Annual)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="features" class="block text-sm font-medium text-gray-700 mb-1">Key Features</label>
+                    <select id="features" class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="all">Any Features</option>
+                        <option value="newcomer">Newcomer Package/Focus</option>
+                        <option value="rewards">Rewards Program (Points/Cash)</option>
+                        <option value="international">International Transfers Perk</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="col-span-full text-center py-8 text-gray-500">
+                Loading products...
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (from index.html) -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newcomer Toolkit Canada</h3>
+                    <p class="text-gray-400">Helping newcomers settle in Canada with confidence and ease.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="quickLinks">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white" data-translate="home">Home</a></li>
+                        <li><a href="/resources" class="text-gray-400 hover:text-white" data-translate="resources">Resources</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white" data-translate="about">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4" data-translate="contact">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@welcometoolkitcanada.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-sm text-gray-500 mb-4" data-translate="disclaimer">
+                    🔹 This is an independent platform built to support newcomers to Canada. We are not affiliated with the Government of Canada. Information is provided for guidance only — please refer to official sources for the most accurate and up-to-date policies.
+                </p>
+                <p class="text-gray-400" data-translate="copyright">&copy; 2025 Welcome Toolkit Canada. <a href="/visitor-rights" class="hover:text-white">All rights reserved</a>. <a href="/privacy-policy" class="hover:text-white" data-translate="privacyPolicy">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/bank-comparison.js"></script>
+</body>
+</html>
